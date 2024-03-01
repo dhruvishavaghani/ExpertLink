@@ -5,7 +5,8 @@ import {
 } from "react-router-dom";
 import Header from './Components/Header';
 import Nav from './Components/Nav';
-
+import Signup from './Components/Signup';
+import Login from './Components/Login';
 
 function App() {
 
@@ -14,6 +15,8 @@ function App() {
       <Nav/>
       <Routes>
           <Route path='/' element={<Home/>}/>
+          <Route path='/signup' element={<Signup/>}/>
+          <Route path='/login' element={<Login/>}/>
       </Routes>
     </Router>
   )
