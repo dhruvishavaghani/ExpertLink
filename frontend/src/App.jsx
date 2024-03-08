@@ -3,10 +3,10 @@ import { createContext, useEffect, useState } from "react";
 import {
   BrowserRouter as Router,Routes,Route,
 } from "react-router-dom";
-import Header from './Components/Header';
 import Nav from './Components/Nav';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
+import Dashboard from './Pages/Dashboard';
 
 function App() {
 
@@ -18,6 +18,11 @@ function App() {
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/login' element={<Login/>}/>
       </Routes>
+
+      <Routes>
+          <Route path='/dashboard' element={<Dashboard/>}/>
+      </Routes>
+      
     </Router>
   )
 }
