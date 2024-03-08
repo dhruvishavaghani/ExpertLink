@@ -12,7 +12,7 @@ function App() {
 
   return (
     <Router>
-      {location.pathname !=='/dashboard' && <Nav/>}
+      {location.pathname != '/dashboard' && <Nav/>}
       <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/signup' element={<Signup/>}/>
