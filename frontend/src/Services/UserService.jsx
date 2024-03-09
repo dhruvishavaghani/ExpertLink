@@ -1,9 +1,9 @@
-import Axios from "axios";
+import axios from "axios";
 
 const url = import.meta.env.VITE_BASE_URL
 
-export const loginUser = async (user) => {
-    const response = await Axios.get(`${url}/users/login`, user).then((res) => {
+export const loginUser = async (obj) => {
+    const response = await axios.post(`${url}/users/login`, obj).then((res) => {
       return res.data;
     });
     return response;

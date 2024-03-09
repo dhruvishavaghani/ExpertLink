@@ -33,19 +33,19 @@ const Login = () => {
           toast.error("Please Enter Password.");
           return;
       }
-      const user = {
+      const obj = {
           email: useremail,
           password: password,
       }
 
       //Login API call
-      await loginUser(user).then((response)=>{
+      await loginUser(obj).then((response)=>{
         if(response==='OK'){
           toast.done("LogIn successfull")
           setIsLoggedIn(true)
           navigate("/")}
         else
-        toast.warn("User with given credentials does not exist")
+        toast.error("User with given credentials does not exist")
       })
     }
 

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:5175/" , allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:5173/" , allowedHeaders = "*", allowCredentials = "true")
 @RequestMapping("/users")
 public class UserController {
 
@@ -32,7 +32,7 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<?> isloginuser(@RequestBody Users users){
 
         System.out.println("login ...");

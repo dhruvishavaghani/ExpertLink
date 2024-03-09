@@ -1,6 +1,7 @@
 import { Menu, X } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useLoginContext } from "../Context/LoginContext";
 
 const menuItems = [
   {
@@ -15,14 +16,21 @@ const menuItems = [
     name: "Contact",
     href: "/Contact",
   },
+
 ];
 
 export default function Nav(){
 const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+const { isLoggedIn } = useLoginContext();
+
 const toggleMenu = () => {
   setIsMenuOpen(!isMenuOpen);
 };
+
+useEffect(() => {
+  console.log(isLoggedIn);
+}, []);
 
 return (
     <div className="relative w-full bg-white">
@@ -59,11 +67,15 @@ return (
           </ul>
         </div>
         <div className="hidden lg:block">
-          <NavLink to="/login">
+          {isLoggedIn ? ( <NavLink to="/dashboard">
+          <button type="button" className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+            Go To Dashboard
+          </button>
+          </NavLink>):( <NavLink to="/login">
           <button type="button" className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
             LogIn
           </button>
-          </NavLink>
+          </NavLink>)}
         </div>
         <div className="lg:hidden">
           <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
