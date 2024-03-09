@@ -28,4 +28,16 @@ public class UserServiceImpl implements UserService {
     public Users addUser(Users users) {
         return usersRepo.save(users);
     }
+
+    @Override
+    public Users getUserByEmail(String email) {
+
+        try{
+            Users user = usersRepo.findUsersByEmail(email);
+            return  user;
+        }
+        catch (Exception e) {
+            return null;
+        }
+    }
 }

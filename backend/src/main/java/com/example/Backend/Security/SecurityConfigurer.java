@@ -6,7 +6,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @EnableWebSecurity
 @Configuration
@@ -14,8 +13,9 @@ public class SecurityConfigurer {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity)throws Exception{
+        System.out.println("security");
         httpSecurity.csrf(csrf -> csrf.disable()).authorizeRequests()
-                .requestMatchers("/users/**").anonymous()
+                .requestMatchers("/users/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

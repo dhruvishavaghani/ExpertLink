@@ -4,17 +4,23 @@ import { NavLink } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import { useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
-import { LoginProvider, useLoginContext } from '../Context/LoginContext';
+import { useLoginContext } from '../Context/LoginContext';
+import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../Services/UserService';
 
 const Login = () => {
 
-    const { name, setname, email, setemail} = useLoginContext();
+    const { setIsLoggedIn } = useLoginContext();
     const [useremail, setUseremail] = useState("");
     const [password, setPassword] = useState("");
+
+    const navigate = useNavigate();
+
 
     const verifyData = async(e) => {
         e.preventDefault()
         if (!useremail && !password) {
+          console.log("errorr")
           toast.error("Please Enter Email and Password.")
           return;
       }
@@ -27,12 +33,20 @@ const Login = () => {
           toast.error("Please Enter Password.");
           return;
       }
-      const obj = {
+      const user = {
           email: useremail,
           password: password,
       }
 
       //Login API call
+      await loginUser(user).then((response)=>{
+        if(response==='OK'){
+          toast.done("LogIn successfull")
+          setIsLoggedIn(true)
+          navigate("/")}
+        else
+        toast.warn("User with given credentials does not exist")
+      })
     }
 
   return (
@@ -105,6 +119,7 @@ const Login = () => {
                 <button
                   type="button"
                   className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
+                  onClick={verifyData}
                 >
                   LogIn <ArrowRight className="ml-2" size={16} />
                 </button>
@@ -115,7 +130,6 @@ const Login = () => {
             <button
               type="button"
               className="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
-              onClick={verifyData}
             >
               <span className="mr-2 inline-block">
                 <svg

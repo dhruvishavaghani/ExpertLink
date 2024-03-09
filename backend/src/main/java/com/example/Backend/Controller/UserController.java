@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:5175/" , allowedHeaders = "*", allowCredentials = "true")
 @RequestMapping("/users")
 public class UserController {
 
@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    @PostMapping("/login")
+    @PostMapping("/signup")
     public ResponseEntity<?>loginuser(@RequestBody Users users){
 
         Users user = new Users();
@@ -30,6 +30,17 @@ public class UserController {
         user.setPassword(passwordEncoder.encode(users.getPassword()));
         userService.addUser(user);
         return ResponseEntity.ok(user);
+    }
+
+    @GetMapping("/login")
+    public ResponseEntity<?> isloginuser(@RequestBody Users users){
+
+        System.out.println("login ...");
+        Users user = userService.getUserByEmail(users.getEmail());
+        if(user == null)
+        return ResponseEntity.ok("ERROR");
+        else
+            return ResponseEntity.ok("OK");
     }
 
     @GetMapping("/test")
