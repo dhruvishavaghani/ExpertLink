@@ -9,9 +9,9 @@ import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const menus = [
-    { name: "dashboard", link: "/", icon: MdOutlineDashboard },
-    { name: "user", link: "/", icon: AiOutlineUser },
-    { name: "messages", link: "/", icon: FiMessageSquare },
+    { name: "User",  icon: AiOutlineUser },
+    { name: "Service",  icon: MdOutlineDashboard },
+    { name: "messages",  icon: FiMessageSquare },
     { name: "analytics", link: "/", icon: TbReportAnalytics, margin: true },
     { name: "File Manager", link: "/", icon: FiFolder },
     { name: "Cart", link: "/", icon: FiShoppingCart },
@@ -19,6 +19,7 @@ const Dashboard = () => {
     { name: "Setting", link: "/", icon: RiSettings4Line },
   ];
   const [open, setOpen] = useState(true);
+
   return (
     <section className="flex gap-6">
       <div
@@ -65,8 +66,8 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="m-3 text-xl text-gray-900 font-semibold">
-        REACT TAILWIND CSS LEarn
-        <h3 className="m-3 text-xl text-gray-900 font-semibold">bvhfff bhfv bhfg bgfhgd bhjhjk</h3>
+        <Login/>
+        {/* <h3 className="m-3 text-xl text-gray-900 font-semibold">bvhfff bhfv bhfg bgfhgd bhjhjk</h3> */}
 
       </div >
     </section>
