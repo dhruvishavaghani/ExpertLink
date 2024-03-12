@@ -12,7 +12,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 
-public class Services {
+public class Service {
 
 
     @Id

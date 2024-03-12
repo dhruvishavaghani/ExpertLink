@@ -24,5 +24,5 @@ public class Users {
     String password;
 
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST} , fetch = FetchType.LAZY)
-    Set<Services> services;
+    Set<Service> services;
 }
