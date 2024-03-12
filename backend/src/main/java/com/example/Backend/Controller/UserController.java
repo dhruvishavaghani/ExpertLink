@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @CrossOrigin(origins = "http://localhost:5173/" , allowedHeaders = "*", allowCredentials = "true")
-@RequestMapping("/users")
+@RequestMapping("/api")
 public class UserController {
 
     @Autowired
@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    @PostMapping("/signup")
+    @PostMapping("/user")
     public ResponseEntity<?>loginuser(@RequestBody Users users){
 
         Users user = new Users();
@@ -32,7 +32,7 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
-    @PostMapping("/login")
+    @PostMapping("/user/login")
     public ResponseEntity<?> isloginuser(@RequestBody Users users){
 
         System.out.println("login ...");
