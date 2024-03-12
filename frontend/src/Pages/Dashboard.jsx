@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
@@ -8,20 +8,37 @@ import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const Dashboard = () => {
+
   const menus = [
-    { name: "User",  icon: AiOutlineUser },
-    { name: "Service",  icon: MdOutlineDashboard },
-    { name: "messages",  icon: FiMessageSquare },
+    { name: "User", link: "/profile", icon: AiOutlineUser },
+    { name: "Service", link: "/service", icon: MdOutlineDashboard },
+    { name: "messages", link: "/", icon: FiMessageSquare },
     { name: "analytics", link: "/", icon: TbReportAnalytics, margin: true },
     { name: "File Manager", link: "/", icon: FiFolder },
     { name: "Cart", link: "/", icon: FiShoppingCart },
     { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
     { name: "Setting", link: "/", icon: RiSettings4Line },
   ];
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) { 
+        setOpen(false); 
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  
   const [open, setOpen] = useState(true);
 
   return (
-    <section className="flex gap-6">
+    <section className={`gap-6 flex`} >
       <div
         className={`bg-[#0e0e0e] min-h-screen ${
           open ? "w-72" : "w-16"
@@ -30,7 +47,7 @@ const Dashboard = () => {
         <div className="py-3 flex justify-end">
           <HiMenuAlt3
             size={26}
-            className="cursor-pointer"
+            className="hidden sm:block cursor-pointer"
             onClick={() => setOpen(!open)}
           />
         </div>
@@ -65,11 +82,7 @@ const Dashboard = () => {
           ))}
         </div>
       </div>
-      <div className="m-3 text-xl text-gray-900 font-semibold">
-        <Login/>
-        {/* <h3 className="m-3 text-xl text-gray-900 font-semibold">bvhfff bhfv bhfg bgfhgd bhjhjk</h3> */}
-
-      </div >
+      
     </section>
   );
 };
