@@ -2,72 +2,49 @@ import Service from "./Service";
 
 export default function Serviceform() {
   return (
-    <div className="flex flex-row">
-      <Service className="flex flex-col"/>
-      <div >
-        <form class="w-full max-w-lg">
-          <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+    <form class="w-full max-w-lg">
+            <div class="w-full md:w-1/2 px-1 mb-6 md:mb-0">
               <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 for="grid-first-name"
               >
-                First Name
+                Title
               </label>
               <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                class="appearance-none block w-full  text-black-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                 id="grid-first-name"
                 type="text"
-                placeholder="Jane"
+                placeholder="Enter a title"
               />
-              <p class="text-red-500 text-xs italic">
-                Please fill out this field.
-              </p>
+              
             </div>
-            <div class="w-full md:w-1/2 px-3">
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-last-name"
-              >
-                Last Name
-              </label>
-              <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-last-name"
-                type="text"
-                placeholder="Doe"
-              />
-            </div>
-          </div>
+            
+          
           <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full px-3">
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                class="block uppercase tracking-wide text-black-700 text-xs font-bold mb-2"
                 for="grid-password"
               >
-                Password
+                Description
               </label>
               <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                class="appearance-none block w-full border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-password"
-                type="password"
-                placeholder="******************"
+                placeholder="Add description in few lines"
               />
-              <p class="text-gray-600 text-xs italic">
-                Make it as long and as crazy as you'd like
-              </p>
             </div>
           </div>
           <div class="flex flex-wrap -mx-3 mb-2">
             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                class="block uppercase tracking-wide text-xs font-bold mb-2"
                 for="grid-city"
               >
                 City
               </label>
               <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-city"
                 type="text"
                 placeholder="Albuquerque"
@@ -82,7 +59,7 @@ export default function Serviceform() {
               </label>
               <div class="relative">
                 <select
-                  class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  class="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-state"
                 >
                   <option>New Mexico</option>
@@ -108,7 +85,7 @@ export default function Serviceform() {
                 Zip
               </label>
               <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-zip"
                 type="text"
                 placeholder="90210"
@@ -116,7 +93,5 @@ export default function Serviceform() {
             </div>
           </div>
         </form>
-      </div>
-    </div>
   );
 }
