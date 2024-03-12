@@ -1,12 +1,11 @@
 package com.example.Backend.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Entity
 @Getter
@@ -23,4 +22,7 @@ public class Users {
     String email;
 
     String password;
+
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST} , fetch = FetchType.LAZY)
+    Set<Services> services;
 }
