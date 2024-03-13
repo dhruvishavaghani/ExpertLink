@@ -40,7 +40,7 @@ public class UserController {
         if(user == null)
         return ResponseEntity.ok("ERROR");
         else
-            return ResponseEntity.ok("OK");
+            return ResponseEntity.ok(user);
     }
 
     @GetMapping("/test")

@@ -19,7 +19,7 @@ import java.util.Set;
 
 @Controller
 @CrossOrigin("*")
-@RequestMapping("/api/services")
+@RequestMapping("/api")
 public class ServiceController {
 
     @Autowired
