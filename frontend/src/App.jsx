@@ -9,9 +9,11 @@ import Dashboard from "./Pages/Dashboard";
 import { ToastContainer, toast } from "react-toastify";
 import { useLoginContext } from "./Context/LoginContext";
 import Service from "./Components/Service";
-import Allservices from "./Components/Allservices";
 import Profile from "./Components/Profile";
-import Serviceform from "./Components/Serviceform";
+import AllServices from "./Components/AllServices";
+import ServiceForm from "./Components/ServiceForm";
+import TopUsers from "./Pages/TopUsers";
+
 
 function App() {
 
@@ -19,7 +21,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {location.pathname != "/dashboard" && location.pathname!= '/service'&& location.pathname!= '/allservices' && location.pathname!= '/profile'&& <Nav />}
+      {location.pathname != "/dashboard" && location.pathname!= '/service'&& location.pathname!= '/allservices' && location.pathname!= '/profile'&& location.pathname!='/serviceform' && <Nav />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
@@ -27,9 +29,10 @@ function App() {
         <Route path="/dashboard" element={<Dashboard/>}/>
           {/* isLoggedIn?(<Dashboard />):(<Login/>)} /> */}
         <Route path="/service" element={<Service />} />
-        <Route path="/allservices" element={<Allservices/>}/>
+        <Route path="/allservices" element={<AllServices/>}/>
         <Route path="/profile" element={<Profile/>}/>
-        <Route path="/serviceform" element={<Serviceform/>}/>
+        <Route path="/serviceform" element={<ServiceForm/>}/>
+        <Route path="/topusers" element={<TopUsers/>}/>
       </Routes>
 
       <ToastContainer

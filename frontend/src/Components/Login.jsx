@@ -10,12 +10,11 @@ import { loginUser } from '../Services/UserService';
 
 const Login = () => {
 
-    const { setIsLoggedIn } = useLoginContext();
+    const { setIsLoggedIn, setId, setName } = useLoginContext();
     const [useremail, setUseremail] = useState("");
     const [password, setPassword] = useState("");
 
     const navigate = useNavigate();
-
 
     const verifyData = async(e) => {
         e.preventDefault()
@@ -40,13 +39,17 @@ const Login = () => {
 
       //Login API call
       await loginUser(obj).then((response)=>{
-        if(response==='OK'){
+
+        if(response==='ERROR')
+          toast.error("User with given credentials does not exist")
+        else{
+          console.log(response)
           toast.done("LogIn successfull")
           setIsLoggedIn(true)
+          setId(response.id)
+          setName(response.name)
           navigate("/")}
-        else
-        toast.error("User with given credentials does not exist")
-      })
+        })
     }
 
   return (

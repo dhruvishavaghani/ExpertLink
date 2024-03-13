@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Dashboard from "../Pages/Dashboard";
-import Serviceform from "./Serviceform";
 import { IoIosAddCircle } from "react-icons/io";
 import { IoLayers } from "react-icons/io5";
-import Allservices from "./Allservices";
+import AllServices from "./AllServices";
+import ServiceForm from "./ServiceForm";
+
 
 function Service() {
   const [addservice, setaddservice] = useState(false);
@@ -60,9 +61,11 @@ function Service() {
               </li>
 
           </ul>
-          {viewservices && <Allservices />}
           <div className="flex mt-10 items-center justify-center">
-            {addservice && <Serviceform />}
+          {viewservices && <AllServices />}
+          </div>
+          <div className="flex mt-10 items-center justify-center">
+            {addservice && <ServiceForm />}
           </div>
         </div>
       </div>
