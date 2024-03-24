@@ -63,7 +63,7 @@ export default function ServiceForm() {
             Title
           </label>
           <input
-            class="appearance-none block w-full  text-black-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            class="appearance-none block w-full  text-black-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="grid-first-name"
             type="text"
             placeholder="Enter a title"
